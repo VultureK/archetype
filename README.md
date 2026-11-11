@@ -19,3 +19,6 @@ We also have an oscillator instrument with basic shapes and an Operator instrume
 
 4. Themes
 Graphite, Basic, Vindows Vista, and FL Studio. My personal favorite is Basic :)
+
+5. Effects
+EQ, Reverb, Overdrive, Delay, Filter, Tremolo, and Compressor.
