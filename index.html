@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Archetype Midi Sequencer</title>
+        <script src="https://cdn.jsdelivr.net/npm/soundfont-player@0.12.0/dist/soundfont-player.min.js"></script>
+        <link rel="stylesheet" href="app/style.css">
+        <script src="app/script.js" defer></script>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    </head>
+    <body>
+        <div id="app">
+            <div id="wt">
+                <span>Archetype Midi Sequencer</span><i><b>–</b><b>▢</b><b>✕</b></i>
+            </div>
+            <div id="mb"></div>
+            <div id="tp">
+                <div class="g t">
+                    <button id="stop" title="Stop / rewind">■</button
+                    ><button id="play" title="Play / pause (Space)">▶</button
+                    ><button id="rec" title="Record (MIDI or computer keyboard)">●</button
+                    ><button id="loop" class="on" title="Loop song">↻</button
+                    ><button id="met" title="Metronome">♩</button>
+                </div>
+                <div class="g">
+                    <div class="lcd" id="pos">001.01.01</div>
+                    <div class="lcd">
+                        BPM <input id="bpm" type="number" min="40" max="240" value="120" /><select id="sig">
+                            <option>4/4</option>
+                            <option>3/4</option>
+                            <option>6/8</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="g">Pattern<select id="psel" style="width: 130px"></select><button id="np">+ Pattern</button><button id="nt">+ Track</button>
+                </div>
+                <div class="g">Snap<select id="snap">
+                        <option value="1">1/16</option>
+                        <option value="2">1/8</option>
+                        <option value="4">1/4</option>
+                        <option value="0.5">1/32</option>
+                    </select>
+                </div>
+            </div>
+            <div id="main">
+                <aside id="side">
+                    <div class="hd"><span>Tracks</span><button id="flip" title="Move track list">⇄</button></div>
+                    <div id="tl"></div>
+                </aside>
+                <section id="arr">
+                    <div id="rlw">
+                        <canvas id="rl"></canvas>
+                        <div id="rph"></div>
+                    </div>
+                    <div class="sc" id="plw">
+                        <div class="sp" id="plsp">
+                            <canvas id="pl"></canvas>
+                            <div class="ph" id="phl"></div>
+                        </div>
+                    </div>
+                </section>
+                <aside id="pv">
+                    <div id="pvr" title="Drag to resize"></div>
+                    <div class="hd">
+                        <span>Patterns</span><button id="pvn" title="New pattern on the active track">+</button>
+                    </div>
+                    <div id="pl2"></div>
+                </aside>
+            </div>
+            <div id="rz"></div>
+            <section id="lower">
+                <div id="fxb">
+                    <div class="fl">
+                        <b id="fxn">Devices</b><span>Effects process audio in order</span
+                        ><button id="addfx">+ Add device</button><button id="insb">Instrument…</button>
+                    </div>
+                    <div id="fxc" style="display: flex; gap: 6px"></div>
+                </div>
+                <div id="rh">
+                    <b id="rt">Piano roll</b>
+                    <div class="g">
+                        <button data-r="t-12">−Oct</button><button data-r="t-1">−1</button
+                        ><button data-r="t+1">+1</button><button data-r="t+12">+Oct</button
+                        ><button data-r="rev">Reverse</button><button data-r="inv">Flip</button
+                        ><button data-r="leg">Legato</button><button data-r="hum">Humanize</button>
+                    </div>
+                    <div class="g">
+                        <label
+                            >Pattern length
+                            <select id="plen"></select></label
+                        ><label
+                            >Note length
+                            <select id="nl">
+                                <option value="1">1/16</option>
+                                <option value="2" selected>1/8</option>
+                                <option value="4">1/4</option>
+                                <option value="8">1/2</option>
+                            </select></label
+                        ><label
+                            >Octave
+                            <select id="oct">
+                                <option>2</option>
+                                <option>3</option>
+                                <option selected>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select></label
+                        ><label
+                            >Scale
+                            <select id="sk"></select
+                            ><select id="ss"></select
+                        ></label>
+                    </div>
+                </div>
+                <div id="rb">
+                    <div id="keys"><canvas id="kc"></canvas></div>
+                    <div class="sc" id="rw">
+                        <div class="sp" id="rsp">
+                            <canvas id="rc"></canvas>
+                            <div class="ph" id="rphl" style="display: none"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="st">
+                <span id="msg"
+                    >Left-click: draw / select / move · Right-click: delete · Shift+Right-click: menu · Ctrl+wheel: zoom
+                    · Space: play</span
+                ><span><span class="bd" id="au">AUDIO SLEEPING</span></span>
+            </div>
+        </div>
+        <div id="ins">
+            <div class="hd"><b id="int">Instrument</b><button id="inx">Close</button></div>
+            <div id="inb"></div>
+        </div>
+        <div id="tpop"></div>
+        <div class="pop" id="cm"></div>
+        <input id="fo" type="file" accept=".json" hidden /><input id="mo" type="file" accept=".mid,.midi" hidden />
+        <script>
+            
+        </script>
+    </body>
+</html>
